@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-
+var cards = document.getElementsByClassName('deck');
 
 /*
  * Display the cards on the page
@@ -24,7 +24,6 @@ function shuffle(array) {
 
     return array;
 }
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
