@@ -10,13 +10,12 @@ var cards = ["fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "
  *   - add each card's HTML to the page
  */
 
-// TODO: How to add item to Class??
 function generateBoard () {
-  var cardList = shuffle(cards);
+  shuffle(cards);
   var allCards = document.querySelectorAll('.fa');
-  allCards.forEach(function(item, i) {
-    item.className += cardList[i];
-  });
+  for (i = 0; i < cards.length; i++) {
+  allCards[i].classList.add(cards[i]);
+  }
 }
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -43,3 +42,4 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+generateBoard();
