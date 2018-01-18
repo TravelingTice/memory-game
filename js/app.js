@@ -2,7 +2,7 @@
  * Create a list that holds all of your cards
  */
 var cards = ["fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-diamond", "fa-diamond", "fa-bomb", "fa-bomb", "fa-bicycle", "fa-bicycle"];
-
+var flippedCards = 0;
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -33,11 +33,15 @@ function shuffle(array) {
     return array;
 }
 
-function openCard (e) {
-  e.target.classList.add('open', 'show');
-  setTimeout( function() {
-    e.target.classList.remove('open', 'show');
-  }, 2000);
+function openCard(e) {
+  if (flippedCards <= 1) {
+    e.target.classList.add('open', 'show');
+    flippedCards += 1;
+    setTimeout(function() {
+      e.target.classList.remove('open', 'show');
+      flippedCards -= 1;
+    }, 2000);
+  };
 }
 
 function addListener () {
