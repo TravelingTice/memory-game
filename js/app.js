@@ -33,13 +33,15 @@ function shuffle(array) {
     return array;
 }
 
+function openCard (e) {
+  e.target.classList.add('open', 'show');
+}
+
 function addListener () {
   var card = document.querySelectorAll('.card')
   for (i = 0; i < card.length; i++) {
-    card[i].addEventListener('click', function () {
-      
-    });
-  }
+    card[i].addEventListener('click', openCard)
+  };
 }
 
 /*
