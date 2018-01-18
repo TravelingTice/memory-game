@@ -35,6 +35,9 @@ function shuffle(array) {
 
 function openCard (e) {
   e.target.classList.add('open', 'show');
+  setTimeout( function() {
+    e.target.classList.remove('open', 'show');
+  }, 2000);
 }
 
 function addListener () {
