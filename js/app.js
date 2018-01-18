@@ -9,13 +9,14 @@ var cards = ["fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
-
+ //TODO: Add description to all functions
 function generateBoard () {
   shuffle(cards);
   var allCards = document.querySelectorAll('.ca');
   for (i = 0; i < cards.length; i++) {
   allCards[i].classList.add(cards[i]);
   }
+  addListener();
 }
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -30,6 +31,15 @@ function shuffle(array) {
     }
 
     return array;
+}
+
+function addListener () {
+  var card = document.querySelectorAll('.card')
+  for (i = 0; i < card.length; i++) {
+    card[i].addEventListener('click', function () {
+      
+    });
+  }
 }
 
 /*
