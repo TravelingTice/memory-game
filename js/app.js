@@ -10,6 +10,14 @@ var cards = ["fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "
  *   - add each card's HTML to the page
  */
 
+// TODO: How to add item to Class??
+function generateBoard () {
+  var cardList = shuffle(cards);
+  var allCards = document.querySelectorAll('.fa');
+  allCards.forEach(function(item, i) {
+    item.className += cardList[i];
+  });
+}
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
