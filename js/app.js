@@ -12,7 +12,7 @@ var cards = ["fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "
 
 function generateBoard () {
   shuffle(cards);
-  var allCards = document.querySelectorAll('.fa');
+  var allCards = document.querySelectorAll('.ca');
   for (i = 0; i < cards.length; i++) {
   allCards[i].classList.add(cards[i]);
   }
