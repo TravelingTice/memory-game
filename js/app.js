@@ -34,14 +34,11 @@ function shuffle(array) {
 }
 
 function openCard(e) {
-  if (flippedCards <= 1) {
     e.target.classList.add('open', 'show');
     flippedCards += 1;
-    setTimeout(function() {
-      e.target.classList.remove('open', 'show');
-      flippedCards -= 1;
-    }, 2000);
-  };
+    if (flippedCards === 2) {
+      
+    }
 }
 
 function addListener () {
