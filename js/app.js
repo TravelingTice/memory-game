@@ -119,7 +119,7 @@ function noMatchFunc() {
   };
 }
 
-//Display Moves
+//Display Moves and add star interaction according to moves
 function displayMoves() {
   const moveDisplay = document.querySelector('.moves');
   const star1 = document.querySelector('#star1')
