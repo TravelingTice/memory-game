@@ -40,6 +40,7 @@ function openCard(e) {
     flippedCards += 1;
     moves += 1;
     if (flippedCards === 2) {
+      removeListener();
       matchCheck();
       if (matchCheck()) {
         matchFunc();
@@ -47,6 +48,7 @@ function openCard(e) {
         setTimeout(noMatchFunc, 2000);
       }
       flippedCards = 0;
+      setTimeout(addListener, 2300)
     }
 }
 
@@ -54,6 +56,13 @@ function addListener () {
   var card = document.querySelectorAll('.card')
   for (i = 0; i < card.length; i++) {
     card[i].addEventListener('click', openCard)
+  };
+}
+
+function removeListener () {
+  var card = document.querySelectorAll('.card')
+  for (i = 0; i < card.length; i++) {
+    card[i].removeEventListener('click', openCard)
   };
 }
 
