@@ -39,6 +39,7 @@ function openCard(e) {
     e.target.classList.add('open', 'show');
     flippedCards += 1;
     moves += 1;
+    e.target.removeEventListener('click', openCard);
     if (flippedCards === 2) {
       removeListener();
       matchCheck();
@@ -55,7 +56,9 @@ function openCard(e) {
 function addListener () {
   var card = document.querySelectorAll('.card')
   for (i = 0; i < card.length; i++) {
-    card[i].addEventListener('click', openCard)
+    if (card[i].classList.contains('match') === false) {
+      card[i].addEventListener('click', openCard)
+    }
   };
 }
 
