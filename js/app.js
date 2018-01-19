@@ -122,10 +122,31 @@ function noMatchFunc() {
 //Display Moves
 function displayMoves() {
   const moveDisplay = document.querySelector('.moves');
+  const star1 = document.querySelector('#star1')
+  const star2 = document.querySelector('#star2')
+  const star3 = document.querySelector('#star3')
   if (moves === 1) {
     moveDisplay.textContent = moves + ' Move';
   } else {
     moveDisplay.textContent = moves + ' Moves';
+  }
+  if (moves === 5) {
+    star3.setAttribute('class', 'fa fa-star-half-o');
+  }
+  if (moves === 10) {
+    star3.setAttribute('class', 'fa fa-star-o');
+  }
+  if (moves === 15) {
+    star2.setAttribute('class', 'fa fa-star-half-o');
+  }
+  if (moves === 20) {
+    star2.setAttribute('class', 'fa fa-star-o');
+  }
+  if (moves === 25) {
+    star1.setAttribute('class', 'fa fa-star-half-o');
+  }
+  if (moves === 30) {
+    star1.setAttribute('class', 'fa fa-star-o');
   }
 }
 
