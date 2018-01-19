@@ -37,7 +37,7 @@ function openCard(e) {
     e.target.classList.add('open', 'show');
     flippedCards += 1;
     if (flippedCards === 2) {
-      
+      matchCheck();
     }
 }
 
@@ -46,6 +46,19 @@ function addListener () {
   for (i = 0; i < card.length; i++) {
     card[i].addEventListener('click', openCard)
   };
+}
+
+function matchCheck () {
+  var openCardList = document.querySelectorAll('.open');
+  var firstCardElement = openCardList[0].firstElementChild;
+  var secondCardElement = openCardList[1].firstElementChild;
+  var firstCard = firstCardElement.classList[2];
+  var secondCard = secondCardElement.classList[2];
+  if (firstCard === secondCard) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 /*
