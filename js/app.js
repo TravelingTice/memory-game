@@ -3,6 +3,8 @@
  */
 var cards = ["fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-diamond", "fa-diamond", "fa-bomb", "fa-bomb", "fa-bicycle", "fa-bicycle"];
 var flippedCards = 0;
+var matches = 0;
+var moves = 0;
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -36,8 +38,15 @@ function shuffle(array) {
 function openCard(e) {
     e.target.classList.add('open', 'show');
     flippedCards += 1;
+    moves += 1;
     if (flippedCards === 2) {
       matchCheck();
+      if (matchCheck()) {
+        matchFunc();
+      } else {
+        setTimeout(noMatchFunc, 2000);
+      }
+      flippedCards = 0;
     }
 }
 
@@ -59,6 +68,22 @@ function matchCheck () {
   } else {
     return false;
   }
+}
+
+function matchFunc() {
+  openCardList = document.querySelectorAll('.open');
+  for (i = 0; i < openCardList.length; i++) {
+    openCardList[i].classList.add('match')
+    openCardList[i].classList.remove('open', 'show');
+  };
+  matches += 1;
+}
+
+function noMatchFunc() {
+  openCardList = document.querySelectorAll('.open');
+  for (i = 0; i < openCardList.length; i++) {
+    openCardList[i].classList.remove('open', 'show');
+  };
 }
 
 /*
