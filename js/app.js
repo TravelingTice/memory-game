@@ -75,6 +75,7 @@ function openCard(e) {
     }
     flippedCards = 0;
     setTimeout(addListener, 1600);
+    displayMoves();
   }
 }
 
@@ -116,6 +117,16 @@ function noMatchFunc() {
   for (i = 0; i < openCardList.length; i++) {
     openCardList[i].classList.remove('open', 'show');
   };
+}
+
+//Display Moves
+function displayMoves() {
+  const moveDisplay = document.querySelector('.moves');
+  if (moves === 1) {
+    moveDisplay.textContent = moves + ' Move';
+  } else {
+    moveDisplay.textContent = moves + ' Moves';
+  }
 }
 
 generateBoard();
