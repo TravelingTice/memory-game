@@ -64,6 +64,7 @@ function openCard(e) {
   flippedCards += 1;
   e.target.removeEventListener('click', openCard);
   if (flippedCards >= 2) {
+    flippedCards = 0;
     moves += 1;
     removeListener();
     matchCheck();
@@ -73,8 +74,7 @@ function openCard(e) {
     } else {
       setTimeout(noMatchFunc, 1500);
     }
-    flippedCards = 0;
-    setTimeout(addListener, 1600);
+    setTimeout(addListener, 1700);
     displayMoves();
   }
 }
@@ -109,6 +109,9 @@ function matchFunc() {
     openCardList[i].classList.remove('open', 'show');
   };
   matches += 1;
+  if (matches >= 8) {
+    setTimeout(generateEndscreen, 300);
+  }
 }
 
 // Execute when matchCheck === false
@@ -130,24 +133,38 @@ function displayMoves() {
   } else {
     moveDisplay.textContent = moves + ' Moves';
   }
-  if (moves === 5) {
+  if (moves === 10) {
     star3.setAttribute('class', 'fa fa-star-half-o');
   }
-  if (moves === 10) {
+  if (moves === 15) {
     star3.setAttribute('class', 'fa fa-star-o');
   }
-  if (moves === 15) {
+  if (moves === 20) {
     star2.setAttribute('class', 'fa fa-star-half-o');
   }
-  if (moves === 20) {
+  if (moves === 25) {
     star2.setAttribute('class', 'fa fa-star-o');
   }
-  if (moves === 25) {
+  if (moves === 30) {
     star1.setAttribute('class', 'fa fa-star-half-o');
   }
-  if (moves === 30) {
+  if (moves === 35) {
     star1.setAttribute('class', 'fa fa-star-o');
   }
 }
 
+//End screen generator
+function generateEndscreen() {
+  const end = new Date();
+  const endScreen = document.querySelector('.end-screen');
+  const endMoves = document.querySelector('#end-txt-moves');
+  const endTime = document.querySelector('#end-txt-time');
+  const totalTime = end - start;
+  const totalTimeSec = Math.floor((end - start) / 1000)
+  endMoves.textContent = 'With ' + moves + ' Moves';
+  endTime.textContent = 'In ' + totalTimeSec + ' Seconds';
+  endScreen.style.display = 'block';
+}
+
 generateBoard();
+const start = new Date();

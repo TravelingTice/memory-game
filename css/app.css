@@ -107,3 +107,43 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+/*
+* Styles for the End Screen
+*/
+
+.end-screen {
+  position: absolute;
+  z-index: 101;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(265, 265, 265, 0.8);
+  display: none;
+}
+
+.end-screen-content {
+  width: 500px;
+  height: 200px;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -300px;
+  margin-left: -200px;
+}
+
+.thumbs-up {
+  font-size: 100px;
+}
+
+#replay-btn {
+  width: 140px;
+  height: 50px;
+  text-align: center;
+  background-color: #1CB7A8;
+  border: 2px solid white;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+}
