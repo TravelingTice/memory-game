@@ -1,98 +1,101 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <title>Matching Game</title>
-    <meta name="description" content="">
-    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
-    <link rel="stylesheet" href="css/app.css">
+  <meta charset="utf-8">
+  <title>Matching Game</title>
+  <meta name="description" content="">
+  <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+  <link rel="stylesheet" href="css/app.css">
 </head>
+
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Matching Game</h1>
-        </header>
+  <div class="container">
+    <header>
+      <h1>Matching Game</h1>
+    </header>
 
-        <section class="score-panel">
-        	<ul class="stars">
-        		<li><i id="star1" class="fa fa-star"></i></li>
-        		<li><i id="star2" class="fa fa-star"></i></li>
-        		<li><i id="star3" class="fa fa-star"></i></li>
-        	</ul>
+    <section class="score-panel">
+      <ul class="stars">
+        <li><i id="star1" class="fa fa-star"></i></li>
+        <li><i id="star2" class="fa fa-star"></i></li>
+        <li><i id="star3" class="fa fa-star"></i></li>
+      </ul>
 
-        	<span class="moves">0 Moves</span>
+      <span class="moves">0 Moves</span>
 
-            <div class="restart" onClick="window.location.reload()">
-        		<i class="fa fa-repeat"></i>
-        	</div>
-        </section>
+      <div class="restart" onClick="window.location.reload()">
+        <i class="fa fa-repeat"></i>
+      </div>
+    </section>
 
-        <ul class="deck">
-            <li class="card">
-                <i class="ca fa"></i>
-            </li>
-            <li class="card">
-                <i class="ca fa"></i>
-            </li>
-            <li class="card">
-                <i class="ca fa"></i>
-            </li>
-            <li class="card">
-                <i class="ca fa"></i>
-            </li>
-            <li class="card">
-                <i class="ca fa"></i>
-            </li>
-            <li class="card">
-                <i class="ca fa"></i>
-            </li>
-            <li class="card">
-                <i class="ca fa"></i>
-            </li>
-            <li class="card">
-                <i class="ca fa"></i>
-            </li>
-            <li class="card">
-                <i class="ca fa"></i>
-            </li>
-            <li class="card">
-                <i class="ca fa"></i>
-            </li>
-            <li class="card">
-                <i class="ca fa"></i>
-            </li>
-            <li class="card">
-                <i class="ca fa"></i>
-            </li>
-            <li class="card">
-                <i class="ca fa"></i>
-            </li>
-            <li class="card">
-                <i class="ca fa"></i>
-            </li>
-            <li class="card">
-                <i class="ca fa"></i>
-            </li>
-            <li class="card">
-                <i class="ca fa"></i>
-            </li>
-        </ul>
+    <ul class="deck">
+      <li class="card">
+        <i class="ca fa"></i>
+      </li>
+      <li class="card">
+        <i class="ca fa"></i>
+      </li>
+      <li class="card">
+        <i class="ca fa"></i>
+      </li>
+      <li class="card">
+        <i class="ca fa"></i>
+      </li>
+      <li class="card">
+        <i class="ca fa"></i>
+      </li>
+      <li class="card">
+        <i class="ca fa"></i>
+      </li>
+      <li class="card">
+        <i class="ca fa"></i>
+      </li>
+      <li class="card">
+        <i class="ca fa"></i>
+      </li>
+      <li class="card">
+        <i class="ca fa"></i>
+      </li>
+      <li class="card">
+        <i class="ca fa"></i>
+      </li>
+      <li class="card">
+        <i class="ca fa"></i>
+      </li>
+      <li class="card">
+        <i class="ca fa"></i>
+      </li>
+      <li class="card">
+        <i class="ca fa"></i>
+      </li>
+      <li class="card">
+        <i class="ca fa"></i>
+      </li>
+      <li class="card">
+        <i class="ca fa"></i>
+      </li>
+      <li class="card">
+        <i class="ca fa"></i>
+      </li>
+    </ul>
 
-        <div class="end-screen">
-          <div class="end-screen-content">
-            <div class="thumbs-up">
-              <i class="fa fa-thumbs-o-up"></i>
-            </div>
-            <h1 id="end-title">Congratulations! You Won!</h1>
-            <p id="end-txt-moves">With 50 Moves</p>
-            <p id="end-txt-time">In 69 Seconds</p>
-            <button id="replay-btn" onClick='window.location.reload()'>Play Again!</button>
-          </div>
+    <div class="end-screen">
+      <div class="end-screen-content">
+        <div class="thumbs-up">
+          <i class="fa fa-thumbs-o-up"></i>
         </div>
+        <h1 id="end-title">Congratulations! You Won!</h1>
+        <p id="end-txt-moves">With 50 Moves</p>
+        <p id="end-txt-time">In 69 Seconds</p>
+        <button id="replay-btn" onClick='window.location.reload()'>Play Again!</button>
+      </div>
     </div>
+  </div>
 
-    <script src="js/app.js"></script>
+  <script src="js/app.js"></script>
 </body>
+
 </html>
