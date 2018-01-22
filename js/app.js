@@ -15,11 +15,21 @@ let moves = 0;
 // Generate board function upon refresh
 function generateBoard() {
   shuffle(cards);
+  setInterval(counter, 1000);
   const allCards = document.querySelectorAll('.ca');
   for (i = 0; i < cards.length; i++) {
     allCards[i].classList.add(cards[i]);
   }
   addListener();
+}
+
+// Display counter that counts every second
+function counter () {
+  const now = new Date().getTime();
+  const minutes = Math.floor((now % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((now % (1000 * 60) / 1000));
+  const time = document.querySelector('#time');
+  time.innerHTML = minutes + ' min ' + seconds + ' sec';
 }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -146,12 +156,6 @@ function displayMoves() {
   if (moves === 25) {
     star2.setAttribute('class', 'fa fa-star-o');
   }
-  if (moves === 30) {
-    star1.setAttribute('class', 'fa fa-star-half-o');
-  }
-  if (moves === 35) {
-    star1.setAttribute('class', 'fa fa-star-o');
-  }
 }
 
 //End screen generator
@@ -160,6 +164,21 @@ function generateEndscreen() {
   const endScreen = document.querySelector('.end-screen');
   const endMoves = document.querySelector('#end-txt-moves');
   const endTime = document.querySelector('#end-txt-time');
+  const star1 = document.querySelector('#starrate1');
+  const star2 = document.querySelector('#starrate2');
+  const star3 = document.querySelector('#starrate3');
+  if (moves >= 10) {
+    star3.setAttribute('class', 'fa fa-star-half-o');
+  }
+  if (moves >= 15) {
+    star3.setAttribute('class', 'fa fa-star-o');
+  }
+  if (moves >= 20) {
+    star2.setAttribute('class', 'fa fa-star-half-o');
+  }
+  if (moves >= 25) {
+    star2.setAttribute('class', 'fa fa-star-o');
+  }
   const totalTime = end - start;
   const totalTimeSec = Math.floor((end - start) / 1000)
   endMoves.textContent = 'With ' + moves + ' Moves';
