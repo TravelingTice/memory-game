@@ -5,6 +5,7 @@ const cards = ["fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor",
 let flippedCards = 0;
 let matches = 0;
 let moves = 0;
+let sec = 0
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -15,7 +16,6 @@ let moves = 0;
 // Generate board function upon refresh
 function generateBoard() {
   shuffle(cards);
-  setInterval(counter, 1000);
   const allCards = document.querySelectorAll('.ca');
   for (i = 0; i < cards.length; i++) {
     allCards[i].classList.add(cards[i]);
@@ -23,14 +23,15 @@ function generateBoard() {
   addListener();
 }
 
-// Display counter that counts every second
-function counter () {
-  const now = new Date().getTime();
-  const minutes = Math.floor((now % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((now % (1000 * 60) / 1000));
-  const time = document.querySelector('#time');
-  time.innerHTML = minutes + ' min ' + seconds + ' sec';
+// Count up function from https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
+function pad (val) { return val > 9 ? val : "0" + val; }
+
+function myTimer (){
+      document.getElementById("seconds").innerHTML=pad(++sec%60);
+      document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
 }
+
+const timer = setInterval(function(){ myTimer() }, 1000);
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -180,9 +181,12 @@ function generateEndscreen() {
     star2.setAttribute('class', 'fa fa-star-o');
   }
   const totalTime = end - start;
-  const totalTimeSec = Math.floor((end - start) / 1000)
+  const time = Math.floor((end - start) / 1000);
+  const totalTimeMin = Math.floor((time) / 60);
+  const totalTimeSec = Math.floor(time - (totalTimeMin * 60))
   endMoves.textContent = 'With ' + moves + ' Moves';
-  endTime.textContent = 'In ' + totalTimeSec + ' Seconds';
+  endTime.textContent = 'In ' + totalTimeMin + ' Minutes and ' + totalTimeSec + ' Seconds';
+  clearInterval(timer); // Freeze timer in background
   endScreen.style.display = 'block';
 }
 
