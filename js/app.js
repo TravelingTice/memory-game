@@ -24,14 +24,18 @@ function generateBoard() {
 }
 
 // Count up function from https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
-function pad (val) { return val > 9 ? val : "0" + val; }
-
-function myTimer (){
-      document.getElementById("seconds").innerHTML=pad(++sec%60);
-      document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
+function pad(val) {
+  return val > 9 ? val : "0" + val;
 }
 
-const timer = setInterval(function(){ myTimer() }, 1000);
+function myTimer() {
+  document.getElementById("seconds").innerHTML = pad(++sec % 60);
+  document.getElementById("minutes").innerHTML = pad(parseInt(sec / 60, 10));
+}
+
+const timer = setInterval(function() {
+  myTimer()
+}, 1000);
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
